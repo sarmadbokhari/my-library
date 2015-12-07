@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="bookApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Reedsy - Sarmad Bokhari</title>
+
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+    <link type="text/css" href="css/animations.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular-route.js"></script>
+    <script type="text/javascript" src="lib/angular-animate.js"></script>
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/homeController.js"></script>
+    <script type="text/javascript" src="js/detailController.js"></script>
+    <script type="text/javascript" src="js/timeagoFilter.js"></script>
+
+</head>
+
+<body>
+    <div class="nav">     
+        <a href="/reedsy/#/"><h1>Reedsy</h1></a>
+    </div>
+    <div ng-view class="page view {{page}}" autoscroll="true"></div>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<div class="wrapper">       
+    
+    <div class="container">
+
+        <div class="filter-block">
+            <form class="form-inline">
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="category">Find me the best</label>
+                        <select class="form-control" name="category" id="category" ng-model="category">
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non-Fiction"  ng-selected="true">Non-Fiction</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="type">books about</label>
+                            <select class="form-control" name="type" id="type" ng-model="type">
+                                <option value="History" ng-selected="true">History</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Christian Books">Christian Books</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Sciences">Sciences</option>
+                                <option value="Children's Books">Children's Books</option>
+                                <option value="Health">Health</option>
+                                <option value="Calendars">Calendars</option>
+                                <option value="Comics">Comics</option>
+                                <option value="Religion">Religion</option>
+                                <option value="Law">Law</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Business">Business</option>
+                                <option value="Cookbooks">Cookbooks</option>
+                                <option value="Parenting">Parenting</option>
+                                <option value="Relationships">Relationships</option>
+                                <option value="Education">Education</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Social Sciences">Social Sciences</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Spirituality">Spirituality</option>
+                                <option value="Literature">Literature</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Humor">Humor</option>
+                                <option value="Science Fiction">Science Fiction</option>
+                                <option value="Computers">Computers</option>
+                                <option value="Medical Books">Medical Books</option>
+                                <option value="Politics">Politics</option>
+                                <option value="Self-Help">Self-Help</option>
+                                <option value="Teen">Teen</option>
+                                <option value="Biographies">Biographies</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group  search-box">
+                             <label for="search" class="visible-xs">Search books</label>
+                            <input id="search" class="form-control" type="search" value="search" placeholder="Search books" ng-model="search">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="book-container">
+            <div class="row">
+                <div ng-repeat="book in bookData | filter:isStatus:book |filter:search  " class="col-sm-4">
+
+                    <a href="#book/{{book.index}}" class="book-index">
+                        <img ng-src="{{book.cover}}">
+                        <h3 ng-bind="book.name"></h3>
+                        <p> By <span class="author" ng-bind="book.author.name"></span></p>
+                        <div class="book-info">
+                            <div class="like"><i class="fa fa-heart-o"></i> {{ book.likes }}</div>
+                            <div class="publish">{{timeago(book.published) | timeago}}</div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div ng-hide="(bookData | filter:isStatus:book).length" class="no-result">
+                    <h3>No search result found</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>Made with <i class="fa fa-heart-o"> from CA</footer>

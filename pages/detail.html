@@ -1,0 +1,54 @@
+<div class="book-detail">
+    <div class="sort-info">
+        <div class="container">
+            <h1 ng-bind="currentBook.name"></h1>
+            <h3 class="author">By <span  ng-bind="currentBook.author.name"></span></h3>
+            <p class="sort-detail"><strong ng-bind="currentBook.description"></strong></p>
+            <h3>Categories</h3>
+            <p class="categories"><span>{{currentBook.genre.category}}</span> , <span>{{currentBook.genre.name}}</span></p>
+        </div>
+    </div>
+    <div class="detail-info">
+        <div class="container">
+            <h2>Introduction</h2>
+            <div class="book-content">
+                <p ng-repeat="intro in currentBook.introduction">{{intro.content}}</p>
+            </div>
+            <div class="book-autor">
+                <img width="100" ng-src="{{currentBook.author.avatar}}" class="img-circle">
+                <h4>Written by <span ng-bind="currentBook.author.name"></span></h4>
+            </div>
+
+        </div>
+    </div>
+    <div class="similar-books text-center">
+        <div class="container">
+            <h2>Similar Reading</h2>
+            <p>if you liked this book, we recommend you check out these emerging titles.</p>
+
+            <div class="book-container">
+                <div class="row">
+
+                    <div ng-repeat="book in similarbooks" class="col-sm-4">
+
+                        <a href="#book/{{book.index}}" class="book-index">
+                            <img ng-src="{{book.cover}}">
+                            <h3 ng-bind="book.name"></h3>
+                            <p> By <span class="author" ng-bind="book.author.name"></span></p>
+                            <div class="book-info">
+                                <div class="like"><i class="fa fa-heart-o"></i> {{ book.likes }}</div>
+                                <div class="publish">{{timeago(book.published) | timeago}}</div>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <div ng-hide="(bookData | filter:isStatus:book).length" class="no-result">
+                        <h3>No similar result found</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>Made with <i class="fa fa-heart-o"> from CA</footer>
